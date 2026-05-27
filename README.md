@@ -1,5 +1,3 @@
-### Key features
-
 # Sonomètre — Projet de mesure de niveau sonore
 
 > Projet complet de sonomètre électronique : schéma, PCB (KiCad) et simulations (LTSpice).
@@ -8,7 +6,7 @@
 
 ## Aperçu rapide
 
-Ce dépôt contient la conception d'un **sonomètre** (instrument de mesure du niveau sonore) couvrant l'adaptation d'entrée, la conditionnement du signal, le filtrage (pondération A), la détection RMS/Crête, l'acquisition et les aspects matériels (schéma et PCB). Sont inclus : le **schéma**, le **PCB**, les **simulations** et la documentation visuelle.
+Ce dépôt contient la conception d'un **sonomètre** (instrument de mesure du niveau sonore) couvrant l'adaptation d'entrée, la conditionnement du signal, le filtrage, la détection RMS/Crête, l'acquisition et les aspects matériels (schéma et PCB). Sont inclus : le **schéma**, le **PCB** et les **simulations**.
 
 ### Points clés
 
@@ -21,101 +19,7 @@ Ce dépôt contient la conception d'un **sonomètre** (instrument de mesure du n
 
 ---
 
-## Architecture du système
-
-<div align="center">
-
-![Global diagram](doc/Diagramme%20global.png)
-
-**Diagramme global** — *Architecture fonctionnelle du sonomètre*
-
-</div>
-
-<div align="center">
-
-![Global circuit](doc/Circuit%20global.png)
-
-**Schéma global** — *Vue d'ensemble du circuit*
-
-</div>
-
----
-
-## Détails des sous‑blocs
-
-### Préamplification / adaptation d'entrée
-
-<div align="center">
-
-![Input adaptation](doc/AdaptationEntree.png)
-
-**Adaptation d'entrée** — *Préampli micro / adaptation impédance et filtrage d'entrée*
-
-</div>
-
-### Conditionnement et filtrage
-
-<div align="center">
-
-![Amplification](doc/Ampli.png)
-
-**Conditionnement** — *Amplification, filtrage (pondération A) et anti‑aliasing*
-
-</div>
-
-### Détection RMS / mesure d'enveloppe
-
-<div align="center">
-
-![Peak detection](doc/DetecteurCretes.png)
-
-**Détecteur** — *Génération d'une valeur représentative (RMS/Leq/Crête) pour conversion en dB*
-
-</div>
-
-### Acquisition / affichage
-
-<div align="center">
-
-![Gain control](doc/AttenuateurControle.png)
-
-**Acquisition et affichage** — *Convertisseur ADC, traitement embarqué et affichage/communication*
-
-</div>
-
-### Sortie / calibration
-
-<div align="center">
-
-![Output adaptation](doc/AdaptationSortieAmpli.png)
-
-**Calibration et sortie** — *Accès pour calibration, sortie analogique/numérique et interface*
-
-</div>
-
----
-
-## Simulations LTSpice
-
-<div align="center">
-
-![LTSpice envelope](doc/LTspice%20demo%20enveloppe.png)
-
-**Simulation d'enveloppe** — *Réponse du détecteur / comportement temporel*
-
-</div>
-
-<div align="center">
-
-![LTSpice signal](doc/LTSpice%20demo%20signal%20a.png)
-
-**Simulation de signal** — *Validation du conditionnement et de la chaîne de mesure*
-
-</div>
-
----
-
-## Photos PCB (si disponibles)
+## PCB
 
 <div align="center">
 
@@ -162,7 +66,6 @@ Sound-Level-Meter/
 
 ### LTSpice
 - Schéma de simulation : [simulation/sound_level_meter_SPICE.asc](simulation/sound_level_meter_SPICE.asc)
-- Tests et fichiers PWL : voir le dossier `simulation/`
 
 ---
 
@@ -171,13 +74,3 @@ Sound-Level-Meter/
 - **Bosco de Rauglaudre**
 - **Titouan Bocquet**
 - **Gavin Mac Aonghusa**
-
----
-
-## Authors
-
-- **Bosco de Rauglaudre**
-- **Titouan Bocquet**
-- **Gavin Mac Aonghusa**
-
-
