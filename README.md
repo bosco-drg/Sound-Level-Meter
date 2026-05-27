@@ -1,30 +1,33 @@
-# Guitar Pedal — Analog Compressor
-
-> Complete analog guitar compressor pedal project, including schematic and PCB design (KiCad) and simulations (LTSpice).
-
----
-
-## Quick overview
-
-This project designs and documents an **analog guitar compressor**: input/output adaptation, amplification, envelope detection, and gain control. It includes the **schematic**, **PCB**, as well as **simulations** and **test results**.
-
 ### Key features
 
-- **Analog compression**: dynamic reduction of the audio signal
-- **Complete signal chain**: input adaptation, amplification, peak detection, gain control, output adaptation
-- **Hardware design**: schematic + PCB routing in KiCad
-- **Simulation**: LTSpice models and sub‑block tests
-- **Visual documentation**: block diagrams and simulation captures
+# Sonomètre — Projet de mesure de niveau sonore
+
+> Projet complet de sonomètre électronique : schéma, PCB (KiCad) et simulations (LTSpice).
 
 ---
 
-## Circuit overview
+## Aperçu rapide
+
+Ce dépôt contient la conception d'un **sonomètre** (instrument de mesure du niveau sonore) couvrant l'adaptation d'entrée, la conditionnement du signal, le filtrage (pondération A), la détection RMS/Crête, l'acquisition et les aspects matériels (schéma et PCB). Sont inclus : le **schéma**, le **PCB**, les **simulations** et la documentation visuelle.
+
+### Points clés
+
+- **Mesure de niveau sonore** : détection RMS et/ou crête, calcul de niveaux (dB SPL)
+- **Pondérations et filtres** : options de filtrage (pondération A/B) pour mesures conforme
+- **Calibration** : procédures et composants pour calibration avec source connue
+- **Conception matérielle** : schéma et routage PCB sous KiCad
+- **Simulations** : modèles LTSpice pour valider le conditionnement et la détection
+- **Documentation visuelle** : diagrammes fonctionnels et captures de simulation
+
+---
+
+## Architecture du système
 
 <div align="center">
 
 ![Global diagram](doc/Diagramme%20global.png)
 
-**Global diagram** — *Functional architecture of the pedal*
+**Diagramme global** — *Architecture fonctionnelle du sonomètre*
 
 </div>
 
@@ -32,93 +35,93 @@ This project designs and documents an **analog guitar compressor**: input/output
 
 ![Global circuit](doc/Circuit%20global.png)
 
-**Global circuit** — *Schematic overview*
+**Schéma global** — *Vue d'ensemble du circuit*
 
 </div>
 
 ---
 
-## Sub‑block details
+## Détails des sous‑blocs
 
-### Input adaptation
+### Préamplification / adaptation d'entrée
 
 <div align="center">
 
 ![Input adaptation](doc/AdaptationEntree.png)
 
-**Input adaptation** — *Guitar signal conditioning*
+**Adaptation d'entrée** — *Préampli micro / adaptation impédance et filtrage d'entrée*
 
 </div>
 
-### Amplification
+### Conditionnement et filtrage
 
 <div align="center">
 
 ![Amplification](doc/Ampli.png)
 
-**Amplification** — *Signal amplification stages*
+**Conditionnement** — *Amplification, filtrage (pondération A) et anti‑aliasing*
 
 </div>
 
-### Peak detection / envelope
+### Détection RMS / mesure d'enveloppe
 
 <div align="center">
 
 ![Peak detection](doc/DetecteurCretes.png)
 
-**Peak detection** — *Envelope generation for control*
+**Détecteur** — *Génération d'une valeur représentative (RMS/Leq/Crête) pour conversion en dB*
 
 </div>
 
-### Gain control / attenuation
+### Acquisition / affichage
 
 <div align="center">
 
 ![Gain control](doc/AttenuateurControle.png)
 
-**Gain control** — *Envelope‑controlled attenuation*
+**Acquisition et affichage** — *Convertisseur ADC, traitement embarqué et affichage/communication*
 
 </div>
 
-### Output adaptation
+### Sortie / calibration
 
 <div align="center">
 
 ![Output adaptation](doc/AdaptationSortieAmpli.png)
 
-**Output adaptation** — *Compatibility with amp or audio interface*
+**Calibration et sortie** — *Accès pour calibration, sortie analogique/numérique et interface*
 
 </div>
 
 ---
 
-## LTSpice simulations
+## Simulations LTSpice
 
 <div align="center">
 
 ![LTSpice envelope](doc/LTspice%20demo%20enveloppe.png)
 
-**Envelope simulation** — *Detection response*
+**Simulation d'enveloppe** — *Réponse du détecteur / comportement temporel*
 
 </div>
 
 <div align="center">
 
-![LTSpice signal](doc/LTspice%20demo%20signal%20a.png)
+![LTSpice signal](doc/LTSpice%20demo%20signal%20a.png)
 
-**Signal simulation** — *Compression effect on the signal*
+**Simulation de signal** — *Validation du conditionnement et de la chaîne de mesure*
 
 </div>
 
 ---
 
-## PCB — Photos
+## Photos PCB (si disponibles)
 
 <div align="center">
 
 ![PCB back side](doc/1.png)
 
-**PCB back side**
+**PCB — verso**
 
 </div>
 
@@ -126,43 +129,48 @@ This project designs and documents an **analog guitar compressor**: input/output
 
 ![PCB component side](doc/2.png)
 
-**PCB component side**
+**PCB — côté composants**
 
 </div>
 
 ---
 
-## Project structure
+## Structure du projet
 
 ```
-Analog-Compressor-Pedal/
+Sound-Level-Meter/
 ├── README.md
-├── doc/                       # Visual documentation and images
-├── LTSpice/                   # Schematics and simulation tests
-│   ├── Circuit_complet_avec_Adaptation.asc
-│   ├── Audio Tests/
-│   ├── Circuit Test Results/
-│   └── PWL Sound Files/
-└── pedaleGuitareComp/         # KiCad project (schematic + PCB)
-		├── pedaleGuitareComp.kicad_sch
-		├── pedaleGuitareComp.kicad_pcb
-		└── footprints_perso/
+├── doc/                       # Documentation visuelle et images
+├── schematic_Kicad/           # Projet KiCad (schéma + PCB)
+│   └── Projet2_EC/
+│       ├── Projet2_EC.kicad_sch
+│       ├── Projet2_EC.kicad_pcb
+│       └── fp-info-cache/
+└── simulation/
+	└── sound_level_meter_SPICE.asc
 ```
 
 ---
 
-## Open the project
+## Ouvrir le projet
 
 ### KiCad
-- Open the project in [pedaleGuitareComp/](pedaleGuitareComp/)
-- Main files:
-	- Schematic: [pedaleGuitareComp/pedaleGuitareComp.kicad_sch](pedaleGuitareComp/pedaleGuitareComp.kicad_sch)
-	- PCB: [pedaleGuitareComp/pedaleGuitareComp.kicad_pcb](pedaleGuitareComp/pedaleGuitareComp.kicad_pcb)
+- Ouvrir le projet dans [schematic_Kicad/Projet2_EC/](schematic_Kicad/Projet2_EC/)
+- Fichiers principaux :
+	- Schéma : [schematic_Kicad/Projet2_EC/Projet2_EC.kicad_sch](schematic_Kicad/Projet2_EC/Projet2_EC.kicad_sch)
+	- PCB : [schematic_Kicad/Projet2_EC/Projet2_EC.kicad_pcb](schematic_Kicad/Projet2_EC/Projet2_EC.kicad_pcb)
 
 ### LTSpice
-- Full schematic: [LTSpice/Circuit_complet_avec_Adaptation.asc](LTSpice/Circuit_complet_avec_Adaptation.asc)
-- Tests and results: [LTSpice/](LTSpice/)
+- Schéma de simulation : [simulation/sound_level_meter_SPICE.asc](simulation/sound_level_meter_SPICE.asc)
+- Tests et fichiers PWL : voir le dossier `simulation/`
 
+---
+
+## Auteurs
+
+- **Bosco de Rauglaudre**
+- **Titouan Bocquet**
+- **Gavin Mac Aonghusa**
 
 ---
 
