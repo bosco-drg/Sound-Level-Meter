@@ -25,7 +25,7 @@ Ce dépôt contient la conception d'un **sonomètre** (instrument de mesure du n
 
 ![PCB back side](doc/1.png)
 
-**PCB — verso**
+**PCB — côté composants**
 
 </div>
 
@@ -33,7 +33,7 @@ Ce dépôt contient la conception d'un **sonomètre** (instrument de mesure du n
 
 ![PCB component side](doc/2.png)
 
-**PCB — côté composants**
+**PCB — verso**
 
 </div>
 
